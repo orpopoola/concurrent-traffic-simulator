@@ -1,10 +1,14 @@
 #include <iostream>
 #include <random>
+#include <time.h> //for random seed
+#include <thread>
+#include <future>
+#include <mutex>
 #include "TrafficLight.h"
 
 /* Implementation of class "MessageQueue" */
 
-/* 
+
 template <typename T>
 T MessageQueue<T>::receive()
 {
@@ -18,8 +22,11 @@ void MessageQueue<T>::send(T &&msg)
 {
     // FP.4a : The method send should use the mechanisms std::lock_guard<std::mutex> 
     // as well as _condition.notify_one() to add a new message to the queue and afterwards send a notification.
+    std::lock_guard<std::mutex>;
+    _queue.emplace_back(msg);
+    _condition.notify_one;
 }
-*/
+
 
 /* Implementation of class "TrafficLight" */
 
@@ -35,7 +42,7 @@ void TrafficLight::waitForGreen()
     // runs and repeatedly calls the receive function on the message queue. 
     // Once it receives TrafficLightPhase::green, the method returns.
 }
-
+*/
 TrafficLightPhase TrafficLight::getCurrentPhase()
 {
     return _currentPhase;
@@ -44,6 +51,7 @@ TrafficLightPhase TrafficLight::getCurrentPhase()
 void TrafficLight::simulate()
 {
     // FP.2b : Finally, the private method „cycleThroughPhases“ should be started in a thread when the public method „simulate“ is called. To do this, use the thread queue in the base class. 
+    threads.emplace_back(std::thread(&TrafficLight::cycleThroughPhases, this));
 }
 
 // virtual function which is executed in a thread
@@ -53,6 +61,25 @@ void TrafficLight::cycleThroughPhases()
     // and toggles the current phase of the traffic light between red and green and sends an update method 
     // to the message queue using move semantics. The cycle duration should be a random value between 4 and 6 seconds. 
     // Also, the while-loop should use std::this_thread::sleep_for to wait 1ms between two cycles. 
+    srand (time(NULL)); //initialize random seed
+    int cycle = 4000 + rand() % 2001;
+    auto startTime = std::chrono::system_clock::now();
+    while(true)
+    {
+        std::chrono::nanoseconds waitTime = std::chrono::system_clock::now() - startTime; //.now() is in ns, we later cast to ms
+        int waitTimeInt = (std::chrono::duration_cast<std::chrono::milliseconds>(waitTime)).count();
+        if(waitTimeInt>cycle)
+        {
+            //toggle light
+            (_currentPhase == TrafficLightPhase::red)?_currentPhase=TrafficLightPhase::green:_currentPhase=TrafficLightPhase::red;
+            //send state using move semantics
+            auto sentFtr = std::async(std::launch::async, &MessageQueue<TrafficLightPhase>::send, &_queue, std::move(_currentPhase));
+            sentFtr.wait();
+            //re-randomize counter and reset start clock states
+            srand (time(NULL)); //initialize random seed
+            int cycle = 4000 + rand() % 2001;
+            startTime =  std::chrono::system_clock::now();
+        }        
+    }
 }
 
-*/
