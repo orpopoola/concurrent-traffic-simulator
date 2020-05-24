@@ -85,7 +85,7 @@ void TrafficLight::cycleThroughPhases()
             //toggle light
             (_currentPhase == TrafficLightPhase::red)?_currentPhase=TrafficLightPhase::green:_currentPhase=TrafficLightPhase::red;
             //send state using move semantics
-            auto sentFtr = std::async(std::launch::async, &MessageQueue<TrafficLightPhase>::send, &_queue, std::move(_currentPhase));
+            auto sentFtr = std::async(std::launch::async, &MessageQueue<TrafficLightPhase>::send, &_messages, std::move(_currentPhase));
             sentFtr.wait();
             //re-randomize counter and reset start clock states
             srand (time(NULL)); //initialize random seed

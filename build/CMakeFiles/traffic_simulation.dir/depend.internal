@@ -5,6 +5,7 @@ CMakeFiles/traffic_simulation.dir/src/Graphics.cpp.o
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Graphics.cpp
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Graphics.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Intersection.h
+ /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficLight.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficObject.h
  /usr/local/include/opencv4/opencv2/core.hpp
  /usr/local/include/opencv4/opencv2/core/base.hpp
@@ -44,12 +45,14 @@ CMakeFiles/traffic_simulation.dir/src/Intersection.cpp.o
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Intersection.cpp
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Intersection.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Street.h
+ /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficLight.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficObject.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Vehicle.h
 CMakeFiles/traffic_simulation.dir/src/Street.cpp.o
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Intersection.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Street.cpp
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Street.h
+ /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficLight.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficObject.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Vehicle.h
 CMakeFiles/traffic_simulation.dir/src/TrafficLight.cpp.o
@@ -63,6 +66,7 @@ CMakeFiles/traffic_simulation.dir/src/TrafficSimulator-Final.cpp.o
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Graphics.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Intersection.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Street.h
+ /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficLight.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficObject.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficSimulator-Final.cpp
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Vehicle.h
@@ -99,6 +103,7 @@ CMakeFiles/traffic_simulation.dir/src/TrafficSimulator-Final.cpp.o
 CMakeFiles/traffic_simulation.dir/src/Vehicle.cpp.o
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Intersection.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Street.h
+ /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficLight.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficObject.h
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Vehicle.cpp
  /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Vehicle.h

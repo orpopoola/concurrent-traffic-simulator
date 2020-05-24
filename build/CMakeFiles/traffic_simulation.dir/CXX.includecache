@@ -47,6 +47,8 @@ Intersection.h
 /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Intersection.h
 Vehicle.h
 /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Vehicle.h
+TrafficLight.h
+/mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficLight.h
 
 /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Intersection.h
 vector
@@ -59,6 +61,8 @@ memory
 -
 TrafficObject.h
 /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficObject.h
+TrafficLight.h
+/mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficLight.h
 
 /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/Street.cpp
 iostream
@@ -78,6 +82,14 @@ TrafficObject.h
 iostream
 -
 random
+-
+time.h
+-
+thread
+-
+future
+-
+mutex
 -
 TrafficLight.h
 /mnt/c/Users/olaol/Documents/Ola-cpp-projects/concurrent-traffic-simulator/src/TrafficLight.h

@@ -22,7 +22,7 @@ public:
     void send(T &&msg);
     T receive();
 private:
-    std::dequeue _queue;
+    std::deque<T> _messages;
     std::condition_variable _condition;
     std::mutex _mutex;    
 };
