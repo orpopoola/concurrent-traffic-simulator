@@ -27,9 +27,9 @@ void MessageQueue<T>::send(T &&msg)
 {
     // FP.4a : The method send should use the mechanisms std::lock_guard<std::mutex> 
     // as well as _condition.notify_one() to add a new message to the queue and afterwards send a notification.
-    std::lock_guard<std::mutex>;
+    std::lock_guard<std::mutex> lock(_mutex);
     _queue.emplace_back(msg);
-    _condition.notify_one;
+    _condition.notify_one();
 }
 
 
@@ -50,7 +50,7 @@ void TrafficLight::waitForGreen()
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
         auto msg = _queue.receive();
-        if(msg == green){return;}
+        if(msg == TrafficLightPhase::green){return;}
     }
 }
 
@@ -82,10 +82,11 @@ void TrafficLight::cycleThroughPhases()
         int waitTimeInt = (std::chrono::duration_cast<std::chrono::milliseconds>(waitTime)).count();
         if(waitTimeInt>cycle)
         {
+        //std::cout<<"Test if this line executes"<<waitTimeInt<<"\n"; //debug line to test for switch
             //toggle light
-            (_currentPhase == TrafficLightPhase::red)?_currentPhase=TrafficLightPhase::green:_currentPhase=TrafficLightPhase::red;
+            (_currentPhase == TrafficLightPhase::green)?_currentPhase=TrafficLightPhase::red:_currentPhase=TrafficLightPhase::green;
             //send state using move semantics
-            auto sentFtr = std::async(std::launch::async, &MessageQueue<TrafficLightPhase>::send, &_messages, std::move(_currentPhase));
+            auto sentFtr = std::async(std::launch::async, &MessageQueue<TrafficLightPhase>::send, &_queue, std::move(_currentPhase));
             sentFtr.wait();
             //re-randomize counter and reset start clock states
             srand (time(NULL)); //initialize random seed

@@ -22,7 +22,7 @@ public:
     void send(T &&msg);
     T receive();
 private:
-    std::deque<T> _messages;
+    std::deque<T> _queue;
     std::condition_variable _condition;
     std::mutex _mutex;    
 };
@@ -32,7 +32,7 @@ private:
 // as well as „TrafficLightPhase getCurrentPhase()“, where TrafficLightPhase is an enum that 
 // can be either „red“ or „green“. Also, add the private method „void cycleThroughPhases()“. 
 // Furthermore, there shall be the private member _currentPhase which can take „red“ or „green“ as its value. 
-enum TrafficLightPhase{
+enum class TrafficLightPhase{
     red,
     green
 };
@@ -42,7 +42,7 @@ class TrafficLight:public TrafficObject
 public:
     // constructor / desctructor
     TrafficLight();
-    ~TrafficLight();
+    //~TrafficLight();
     // getters / setters
 
     // typical behaviour methods
