@@ -1,6 +1,6 @@
 #include <iostream>
 #include <random>
-#include <time.h> //for random seed
+#include <random> //for random seed
 #include <thread>
 #include <future>
 #include <mutex>
@@ -72,8 +72,10 @@ void TrafficLight::cycleThroughPhases()
     // and toggles the current phase of the traffic light between red and green and sends an update method 
     // to the message queue using move semantics. The cycle duration should be a random value between 4 and 6 seconds. 
     // Also, the while-loop should use std::this_thread::sleep_for to wait 1ms between two cycles. 
-    srand (time(NULL)); //initialize random seed
-    int cycle = 4000 + rand() % 2001;
+    std::random_device r;
+    std::mt19937 generator(r());
+    std::uniform_int_distribution<int> dist(4000, 6000);
+    int cycle = dist(generator);
     auto startTime = std::chrono::system_clock::now();
     while(true)
     {        
@@ -89,8 +91,7 @@ void TrafficLight::cycleThroughPhases()
             auto sentFtr = std::async(std::launch::async, &MessageQueue<TrafficLightPhase>::send, &_queue, std::move(_currentPhase));
             sentFtr.wait();
             //re-randomize counter and reset start clock states
-            srand (time(NULL)); //initialize random seed
-            int cycle = 4000 + rand() % 2001;
+            cycle = dist(generator);
             startTime =  std::chrono::system_clock::now();
         }        
     }
